@@ -47,7 +47,7 @@ async def addchannel(client, message):
 
 
 @Client.on_message(
-    command(["leave", f"leave@{BOT_USERNAME}"]) & filters.group & ~filters.edited
+    command(["getout", f"getout@{BOT_USERNAME}"]) & filters.group & ~filters.edited
 )
 @authorized_users_only
 async def rem(client, message):
