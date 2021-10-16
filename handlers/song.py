@@ -35,10 +35,10 @@ ydl_opts = {
 }
 
 
-@Client.on_message(command(["song", f"song@{bn}"]) & ~filters.edited)
+@Client.on_message(command(["songs", f"songs@{bn}"]) & ~filters.edited)
 def song(_, message):
     query = " ".join(message.command[1:])
-    m = message.reply("🔎 finding song...")
+    m = message.reply("🔎 Cari Lagu dulu...")
     ydl_ops = {"format": "bestaudio[ext=m4a]"}
     try:
         results = YoutubeSearch(query, max_results=1).to_dict()
@@ -51,16 +51,16 @@ def song(_, message):
         duration = results[0]["duration"]
 
     except Exception as e:
-        m.edit("❌ song not found.\n\nplease give a valid song name.")
+        m.edit("❌ Lagu tidak ditemukan.\n\n Tolong beri judul lagu yang valid.")
         print(str(e))
         return
-    m.edit("📥 downloading...")
+    m.edit("📥 download...")
     try:
         with yt_dlp.YoutubeDL(ydl_ops) as ydl:
             info_dict = ydl.extract_info(link, download=False)
             audio_file = ydl.prepare_filename(info_dict)
             ydl.process_info(info_dict)
-        rep = f"**🎧 Uploader @{bn}**"
+        rep = f"**🎧 Diunggah oleh : @{bn}**"
         secmul, dur, dur_arr = 1, 0, duration.split(":")
         for i in range(len(dur_arr) - 1, -1, -1):
             dur += int(float(dur_arr[i])) * secmul
@@ -76,7 +76,7 @@ def song(_, message):
         )
         m.delete()
     except Exception as e:
-        m.edit("❌ error, wait for dev to fix")
+        m.edit("❌ Terjadi kesalahan, tunggu pemilik untuk memperbaiki")
         print(e)
 
     try:
@@ -216,7 +216,7 @@ def time_to_seconds(times):
 
 
 @Client.on_message(
-    command(["vsong", f"vsong@{bn}", "video", f"video@{bn}"]) & ~filters.edited
+    command(["vsongs", f"vsongs@{bn}", "videos", f"videos@{bn}"]) & ~filters.edited
 )
 async def vsong(client, message):
     ydl_opts = {
@@ -268,7 +268,7 @@ async def vsong(client, message):
 async def lyrics(_, message):
     try:
         if len(message.command) < 2:
-            await message.reply_text("» **give a lyric name too.**")
+            await message.reply_text("» **Beri judul lagu juga.**")
             return
         query = message.text.split(None, 1)[1]
         rep = await message.reply_text("🔎 **searching lyrics...**")
@@ -278,4 +278,4 @@ async def lyrics(_, message):
         result = f"{resp['data']}"
         await rep.edit(result)
     except Exception:
-        await rep.edit("❌ **lyrics not found.**\n\n» **please give a valid song name.**")
+        await rep.edit("❌ **Lirik tidak ditemukan.**\n\n» **Tolong beri judul lagu yang valid.**")
