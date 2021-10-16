@@ -22,19 +22,19 @@ from pyrogram import Client
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message
 
 
-@Client.on_message(command(["stream", f"stream@{BOT_USERNAME}"]) & other_filters)
+@Client.on_message(command(["psound", f"psound@{BOT_USERNAME}"]) & other_filters)
 async def stream(_, message: Message):
     costumer = message.from_user.mention
-    lel = await message.reply_text("🔁 **processing** sound...")
+    lel = await message.reply_text("🔁 **Sedang Memproses** file dahulu...")
 
     keyboard = InlineKeyboardMarkup(
         [
             [
                 InlineKeyboardButton(
-                    text="✨ ɢʀᴏᴜᴘ", url=f"https://t.me/{GROUP_SUPPORT}"
+                    text="Group Batak", url=f"https://t.me/{GROUP_SUPPORT}"
                 ),
                 InlineKeyboardButton(
-                    text="🌻 ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/{UPDATES_CHANNEL}"
+                    text="Channel Batak", url=f"https://t.me/{UPDATES_CHANNEL}"
                 ),
             ]
         ]
@@ -42,10 +42,10 @@ async def stream(_, message: Message):
 
     audio = message.reply_to_message.audio if message.reply_to_message else None
     if not audio:
-        return await lel.edit("💭 **please reply to a telegram audio file**")
+        return await lel.edit("💭 **Tolong balas ke file audio telegram**")
     if round(audio.duration / 60) > DURATION_LIMIT:
         return await lel.edit(
-            f"❌ **music with duration more than** `{DURATION_LIMIT}` **minutes, can't play !**"
+            f"❌ **Musik dengan durasi lebih dari** `{DURATION_LIMIT}` **menit, tidak dapat diputar !**"
         )
 
     # tede_ganteng = True
@@ -62,15 +62,15 @@ async def stream(_, message: Message):
         position = await queues.put(message.chat.id, file=file_path)
         await message.reply_photo(
             photo=f"{QUE_IMG}",
-            caption=f"💡 **Track added to queue »** `{position}`\n\n🏷 **Name:** {title[:50]}\n⏱ **Duration:** `{duration}`\n🎧 **Request by:** {costumer}",
+            caption=f"💡 **Musik ditambahkan ke antrean »** `{position}`\n\n🏷 **Judul :** {title[:50]}\n⏱ **Durasi :** `{duration}`\n🎧 **Permintaan dari :** {costumer}",
             reply_markup=keyboard,
         )
     else:
         callsmusic.pytgcalls.join_group_call(message.chat.id, file_path)
         await message.reply_photo(
             photo=f"{AUD_IMG}",
-            caption=f"🏷 **Name:** {title[:50]}\n⏱ **Duration:** `{duration}`\n💡 **Status:** `Playing`\n"
-            + f"🎧 **Request by:** {costumer}",
+            caption=f"🏷 **Judul :** {title[:50]}\n⏱ **Durasi :** `{duration}`\n💡 **Status:** `Diputar`\n"
+            + f"🎧 **Permintaan dari :** {costumer}",
             reply_markup=keyboard,
         )
 
