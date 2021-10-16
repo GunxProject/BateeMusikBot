@@ -70,7 +70,7 @@ async def channel_resume(_, message: Message):
         await message.reply_text("⏸ **Track resumed.**\n\n• **To pause the playback, use the**\n» `/cpause` command.")
 
 
-@Client.on_message(command(["cend", f"cend@{BOT_USERNAME}"]) & other_filters)
+@Client.on_message(command(["cends", f"cends@{BOT_USERNAME}"]) & other_filters)
 @errors
 @authorized_users_only
 async def channel_stop(_, message: Message):
