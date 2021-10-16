@@ -52,12 +52,12 @@ async def _human_time_duration(seconds):
 )
 async def start_(client: Client, message: Message):
     await message.reply_text(
-        f"""✨ **Welcome {message.from_user.mention} !**\n
-💭 **[{BOT_NAME}](https://t.me/{BOT_USERNAME}) allows you to play music on groups through the new Telegram's voice chats!**
+        f"""✨ **Horas {message.from_user.mention} !**\n
+💭 **[{BOT_NAME}](https://t.me/{BOT_USERNAME}) memungkinkan anda untuk memutar musik di grup melalui obrolan suara !**
 
-💡 **Find out all the Bot's commands and how they work by clicking on the » 📚 Commands button!**
+💡 **Cari tahu semua perintah Bot dan cara kerjanya dengan mengklik tombol » 📚 Perintah-Perintah dibawah !**
 
-❔ **To know how to use this bot, please click on the » ❓ Basic Guide button!**""",
+❔ **Untuk mengetahui cara menggunakan bot ini, silakan klik tombol » ❓ Cara Kerja dibawah !**""",
         reply_markup=InlineKeyboardMarkup(
             [
                 [
@@ -66,22 +66,22 @@ async def start_(client: Client, message: Message):
                         url=f"https://t.me/{BOT_USERNAME}?startgroup=true",
                     )
                 ],
-                [InlineKeyboardButton("❓ Basic Guide", callback_data="cbhowtouse")],
+                [InlineKeyboardButton("📚 Perintah-Perintah", callback_data="cbcmds")],
                 [
-                    InlineKeyboardButton("📚 Commands", callback_data="cbcmds"),
-                    InlineKeyboardButton("💝 Donate", url=f"https://t.me/{OWNER_NAME}"),
+                    InlineKeyboardButton("❓ Cara Kerja", callback_data="cbhowtouse"),
+                    InlineKeyboardButton("💝 Donasi", url=f"https://t.me/{OWNER_NAME}"),
                 ],
                 [
                     InlineKeyboardButton(
-                        "👥 Official Group", url=f"https://t.me/{GROUP_SUPPORT}"
+                        "👥 Grup Batak", url=f"https://t.me/{GROUP_SUPPORT}"
                     ),
                     InlineKeyboardButton(
-                        "📣 Official Channel", url=f"https://t.me/{UPDATES_CHANNEL}"
+                        "📣 Channel Batak", url=f"https://t.me/{UPDATES_CHANNEL}"
                     ),
                 ],
                 [
                     InlineKeyboardButton(
-                        "🌐 Source Code", url="https://github.com/levina-lab/VeezMusic"
+                        "🤵 Pemilik", url="https://t.me/galang109"
                     )
                 ],
             ]
@@ -101,15 +101,15 @@ async def start(client: Client, message: Message):
     keyboard = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton("✨ Group", url=f"https://t.me/{GROUP_SUPPORT}"),
+                InlineKeyboardButton("✨ Group Batak", url=f"https://t.me/{GROUP_SUPPORT}"),
                 InlineKeyboardButton(
-                    "📣 Channel", url=f"https://t.me/{UPDATES_CHANNEL}"
+                    "📣 Channel Batak", url=f"https://t.me/{UPDATES_CHANNEL}"
                 ),
             ]
         ]
     )
 
-    alive = f"**Hello {message.from_user.mention}, i'm {BOT_NAME}**\n\n✨ Bot is working normally\n🍀 My Master: [{ALIVE_NAME}](https://t.me/{OWNER_NAME})\n✨ Bot Version: `v{__version__}`\n🍀 Pyrogram Version: `{pyrover}`\n✨ Python Version: `{__python_version__}`\n🍀 Uptime Status: `{uptime}`\n\n**Thanks for Adding me here, for playing music on your Group voice chat** ❤"
+    alive = f"**Halo {message.from_user.mention}, saya adalah {BOT_NAME}**\n\n✨ Bot berfungsi normal\n🍀 Pemilikku : [{ALIVE_NAME}](https://t.me/{OWNER_NAME})\n✨ Versi Bot : `v{__version__}`\n🍀 Versi Pyrogram : `{pyrover}`\n✨ Versi Python : `{__python_version__}`\n🍀 Dimulai sejak : `{uptime}`\n\n**Terima kasih telah Menambahkan saya di sini, untuk menemani kegalauan anda di obrolan suara Grup Anda** ❤"
 
     await message.reply_photo(
         photo=f"{ALIVE_IMG}",
@@ -123,13 +123,13 @@ async def start(client: Client, message: Message):
 )
 async def help(client: Client, message: Message):
     await message.reply_text(
-        f"""✨ **Hello** {message.from_user.mention()} !
+        f"""✨ **Horas** {message.from_user.mention()} !
 
-» **press the button below to read the explanation and see the list of available commands !**
+» **Tekan tombol di bawah untuk membaca penjelasan dan melihat daftar perintah yang tersedia !**
 
-⚡ __Powered by {BOT_NAME} A.I__""",
+⚡ __Dipersembahkan oleh {BOT_NAME} A.I__""",
         reply_markup=InlineKeyboardMarkup(
-            [[InlineKeyboardButton(text="❓ Basic Guide", callback_data="cbguide")]]
+            [[InlineKeyboardButton(text="❓ Cara Kerja", callback_data="cbguide")]]
         ),
     )
 
@@ -139,7 +139,7 @@ async def ping_pong(client: Client, message: Message):
     start = time()
     m_reply = await message.reply_text("pinging...")
     delta_ping = time() - start
-    await m_reply.edit_text("🏓 `PONG!!`\n" f"⚡️ `{delta_ping * 1000:.3f} ms`")
+    await m_reply.edit_text("🏓 `Horas !!`\n" f"⚡️ `{delta_ping * 1000:.3f} ms`")
 
 
 @Client.on_message(command(["uptime", f"uptime@{BOT_USERNAME}"]) & ~filters.edited)
@@ -150,6 +150,6 @@ async def get_uptime(client: Client, message: Message):
     uptime = await _human_time_duration(int(uptime_sec))
     await message.reply_text(
         "🤖 bot status:\n"
-        f"• **uptime:** `{uptime}`\n"
-        f"• **start time:** `{START_TIME_ISO}`"
+        f"• **Bangun dari :** `{uptime}`\n"
+        f"• **Dilahirkan pada :** `{START_TIME_ISO}`"
     )
