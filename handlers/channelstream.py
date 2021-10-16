@@ -325,7 +325,7 @@ async def m_cb(b, cb):
             await cb.answer("chat is not connected !", show_alert=True)
 
 
-@Client.on_message(command(["cplay", f"cplay@{BOT_USERNAME}"]) & other_filters)
+@Client.on_message(command(["cbatee", f"cbatee@{BOT_USERNAME}"]) & other_filters)
 @authorized_users_only
 async def play(_, message: Message):
     global que
