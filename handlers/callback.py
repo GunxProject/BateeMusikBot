@@ -93,9 +93,9 @@ async def cbbasic(_, query: CallbackQuery):
 /ytp (Judul Lagu) - Putar lagu langsung dari youtube tanpa pemilihan.
 /vplay (balas audio) - Putar lagu menggunakan file audio.
 /playlist - Tampilkan daftar lagu dalam antrian.
-/song (nama lagu) - Download lagu dari youtube.
+/songs (nama lagu) - Download lagu dari youtube.
 /search (nama video) - Cari info video dari youtube.
-/vsong (nama video) - Download video dari youtube.
+/vsongs (nama video) - Download video dari youtube.
 /lyric (nama lagu) - Cari lirik lagu.
 
 🎧 [ Perintah Untuk Di Channel ]
