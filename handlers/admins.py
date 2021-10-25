@@ -70,7 +70,7 @@ async def controlset(_, message: Message):
                     InlineKeyboardButton("⏹ stop", callback_data="cbend"),
                 ],
                 [InlineKeyboardButton("⛔ anti cmd", callback_data="cbdelcmds")],
-                [InlineKeyboardButton("🗑 Close", callback_data="close")],
+                [InlineKeyboardButton("~ Tutup ~", callback_data="close")],
             ]
         ),
     )
