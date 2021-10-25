@@ -47,7 +47,7 @@ def cb_admin_check(func: Callable) -> Callable:
         if cb.from_user.id in admemes:
             return await func(client, cb)
         else:
-            await cb.answer("💡 Maaf, Kamu jelek. Hanya yang cantik/ganteng yang dapat menekan tombol ini !", show_alert=True)
+            await cb.answer("💡 Maaf, kamu jelek, hanya yang cantik/ganteng yang dapat menekan tombol ini 😂", show_alert=True)
             return
 
     return decorator
@@ -121,8 +121,8 @@ async def playlist(client, message):
     keyboard = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton("• Grup Batak", url=f"https://t.me/{GROUP_SUPPORT}"),
-                InlineKeyboardButton("• Channel Batak", url=f"https://t.me/{UPDATES_CHANNEL}"
+                InlineKeyboardButton("~ Grup Batak ~", url=f"https://t.me/{GROUP_SUPPORT}"),
+                InlineKeyboardButton("~ Tutup ~", "cls"
                 ),
             ]
         ]
@@ -185,7 +185,7 @@ def r_ply(type_):
             [
                 InlineKeyboardButton("📖 PLAY-LIST", "playlist"),
             ],
-            [InlineKeyboardButton("🗑 Tutup", "cls")],
+            [InlineKeyboardButton("~ Tutup ~", "cls")],
         ]
     )
     return mar
@@ -229,7 +229,7 @@ async def music_onoff(_, message):
         return
     if len(message.command) != 2:
         await message.reply_text(
-            "**• Gunakan :**\n\n `/music on` atau `/music off`"
+            "**• Gunakan :**\n `/music on` atau `/music off`"
         )
         return
     status = message.text.split(None, 1)[1]
@@ -426,7 +426,7 @@ async def m_cb(b, cb):
                 [
                     InlineKeyboardButton("📖 PLAY-LIST", "playlist"),
                 ],
-                [InlineKeyboardButton("🗑 Tutup", "cls")],
+                [InlineKeyboardButton("~ Tutup ~", "cls")],
             ]
         )
         await cb.message.edit(stats, reply_markup=marr)
@@ -485,7 +485,7 @@ async def play(_, message: Message):
     global useer
     if message.chat.id in DISABLED_GROUPS:
         return
-    lel = await message.reply("🔎 **Mencari dulu lagunya...**")
+    lel = await message.reply("🔎 **Cari dulu lagunya...**")
     administrators = await get_administrators(message.chat)
     chid = message.chat.id
     try:
