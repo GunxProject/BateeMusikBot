@@ -572,7 +572,7 @@ async def play(_, message: Message):
                 ],
                 [
                     InlineKeyboardButton(
-                        "• Channel Batak", url=f"https://t.me/{UPDATES_CHANNEL}"
+                        "• Grup Batak", url=f"https://t.me/{GROUP_SUPPORT}"
                     )
                 ],
             ]
@@ -621,7 +621,7 @@ async def play(_, message: Message):
                 ],
                 [
                     InlineKeyboardButton(
-                        "• Channel Batak", url=f"https://t.me/{UPDATES_CHANNEL}"
+                        "• Grup Batak", url=f"https://t.me/{GROUP_SUPPORT}"
                     )
                 ],
             ]
@@ -715,7 +715,7 @@ async def play(_, message: Message):
                     ],
                     [
                         InlineKeyboardButton(
-                            "• Channel Batak", url=f"https://t.me/{UPDATES_CHANNEL}"
+                            "• Grup Batak", url=f"https://t.me/{GROUP_SUPPORT}"
                         )
                     ],
                 ]
@@ -820,7 +820,7 @@ async def lol_cb(b, cb):
                 InlineKeyboardButton("• Menu", callback_data="menu"),
                 InlineKeyboardButton("• Tutup", callback_data="cls"),
             ],
-            [InlineKeyboardButton("• Channel", url=f"https://t.me/{UPDATES_CHANNEL}")],
+            [InlineKeyboardButton("• Grup Batak", url=f"https://t.me/{GROUP_SUPPORT}")],
         ]
     )
     await generate_cover(title, thumbnail, ctitle)
@@ -967,10 +967,10 @@ async def ytplay(_, message: Message):
     keyboard = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton("• Mᴇɴᴜ", callback_data="menu"),
-                InlineKeyboardButton("• Cʟᴏsᴇ", callback_data="cls"),
+                InlineKeyboardButton("• Menu", callback_data="menu"),
+                InlineKeyboardButton("• Close", callback_data="cls"),
             ],
-            [InlineKeyboardButton("• Cʜᴀɴɴᴇʟ", url=f"https://t.me/{UPDATES_CHANNEL}")],
+            [InlineKeyboardButton("• Grup Batak", url=f"https://t.me/{GROUP_SUPPORT}")],
         ]
     )
     message.from_user.first_name
