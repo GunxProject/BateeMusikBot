@@ -122,7 +122,7 @@ async def cbadvanced(_, query: CallbackQuery):
         f"""🏮 **Berikut adalah perintah lanjutan**
 
 /start (dalam grup) - Melihat status bot hidup.
-/reload - Muat ulang bot dan segarkan daftar admin.
+/reloads - Muat ulang bot dan segarkan daftar admin.
 /ping - Periksa status ping bot.
 /uptime - Periksa status waktu aktif bot.
 /id - Tunjukkan grup/id pengguna & lainnya.
@@ -144,7 +144,7 @@ async def cbadmin(_, query: CallbackQuery):
 /resume - Lanjutkan lagu yang dijeda.
 /skip - Melompat ke lagu berikutnya.
 /ends - Hentikan Pemutaran Lagu.
-/join - Mengundang asisten bergabung ke grup Anda.
+/joins - Mengundang asisten bergabung ke grup Anda.
 /getout - Perintahkan asisten untuk keluar dari grup anda.
 /auths - Memberikan wewenang/ijin ke seseorang untuk menggunakan perintah admin.
 /unauths - Membatalkan wewenang/ijin ke seseorang yg sebelumnya di beri ijin untuk menggunakan perintah admin.
