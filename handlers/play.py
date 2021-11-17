@@ -572,7 +572,7 @@ async def play(_, message: Message):
                 ],
                 [
                     InlineKeyboardButton(
-                        "• Grup Batak", url=f"https://t.me/{GROUP_SUPPORT}"
+                        "• Grup Batak", url=f"https://t.me/bataks"
                     )
                 ],
             ]
@@ -621,7 +621,7 @@ async def play(_, message: Message):
                 ],
                 [
                     InlineKeyboardButton(
-                        "• Grup Batak", url=f"https://t.me/{GROUP_SUPPORT}"
+                        "• Grup Batak", url=f"https://t.me/bataks"
                     )
                 ],
             ]
@@ -715,7 +715,7 @@ async def play(_, message: Message):
                     ],
                     [
                         InlineKeyboardButton(
-                            "• Grup Batak", url=f"https://t.me/{GROUP_SUPPORT}"
+                            "• Grup Batak", url=f"https://t.me/bataks"
                         )
                     ],
                 ]
@@ -820,7 +820,7 @@ async def lol_cb(b, cb):
                 InlineKeyboardButton("• Menu", callback_data="menu"),
                 InlineKeyboardButton("• Tutup", callback_data="cls"),
             ],
-            [InlineKeyboardButton("• Grup Batak", url=f"https://t.me/{GROUP_SUPPORT}")],
+            [InlineKeyboardButton("• Grup Batak", url=f"https://t.me/bataks")],
         ]
     )
     await generate_cover(title, thumbnail, ctitle)
@@ -970,7 +970,7 @@ async def ytplay(_, message: Message):
                 InlineKeyboardButton("• Menu", callback_data="menu"),
                 InlineKeyboardButton("• Close", callback_data="cls"),
             ],
-            [InlineKeyboardButton("• Grup Batak", url=f"https://t.me/{GROUP_SUPPORT}")],
+            [InlineKeyboardButton("• Grup Batak", url=f"https://t.me/bataks")],
         ]
     )
     message.from_user.first_name
